@@ -1,33 +1,48 @@
 <div class="container text-center register">
     <h1>Register</h1>
     <p>Validate your data so that no one can enter or create an account in your name.</p>
-    <div class="row">
-        <input type="text" class="offset-1 col-6" placeholder="email"/>
-        <p class="offset-1 col-2">verify</p>
-    </div>
-    <div class="row">
-        <input type="text" class="offset-1 col-3"  placeholder="first name"/>
-        <input type="text" class="col-3" placeholder="last name"/>
-        <p class="offset-1 col-2">verify</p>
-    </div>
-    <div class="row">
-        <input type="text" class="offset-1 col-6" placeholder="username"/>
-        <p class="offset-1 col-2">verify</p>
-    </div>
-    <div class="row">
-        <input type="text" class="offset-1 col-6" placeholder="phone"/>
-        <p class="offset-1 col-2">verify</p>
-    </div>
-    <div class="row">
-        <input type="password" class="offset-1 col-3"  placeholder="password"/>
-        <input type="password" class="col-3" placeholder="verify password"/>
-        <p class="offset-1 col-2">verify</p>
-    </div>
-    <div class="row">
-        <button type="button" class="btn btn-outline-success offset-4 col-4">verify</button>
-    </div>
-</div>
+    <form [formGroup]="formUser">
+        <div class="row">
+            <input type="email" formControlName="email" class="offset-1 col-6" placeholder="email@domain.com"/>
 
+            <div class="offset-1 col-4 alert alert-danger" [hidden]="formUser.get('email')?.valid || formUser.get('email')?.pristine">
+                <span *ngIf="formUser.get('email')?.errors?.['required']" >empty email</span>
+                <span *ngIf="formUser.get('email')?.errors?.['email']" >invalid email</span>
+            </div>
+        </div>
+        <div class="row">
+            <input type="text" formControlName="fName" class="offset-1 col-3"  placeholder="first name"/>
+            <input type="text" formControlName="lName" class="col-3" placeholder="last name"/>
+
+            <div class="offset-1 col-4 alert alert-danger" [hidden]="(formUser.get('fName')?.valid && formUser.get('lName')?.valid) || formUser.get('fName')?.pristine || formUser.get('lName')?.pristine">
+                <span *ngIf="formUser.get('fName')?.errors?.['required'] || formUser.get('lName')?.errors?.['required']" >empty Name</span>
+                <span *ngIf="formUser.get('fName')?.errors?.['fName'] || formUser.get('lName')?.errors?.['lName']" >invalid Name</span>
+            </div>
+        </div>
+        <div class="row">
+            <input type="text" formControlName="username" class="offset-1 col-6" placeholder="username"/>
+            
+            <div class="offset-1 col-4 alert alert-danger" [hidden]="formUser.get('username')?.valid || formUser.get('username')?.pristine">
+                <span *ngIf="formUser.get('username')?.errors?.['required']" >empty username</span>
+                <span *ngIf="formUser.get('username')?.errors?.['username']" >invalid username</span>
+            </div>
+        </div>
+        <div class="row">
+            <input type="text" formControlName="phone" class="offset-1 col-6" placeholder="phone"/>
+        </div>
+        <div class="row">
+            <input type="password" formControlName="password" class="offset-1 col-3"  placeholder="password (min. 8 charac., 1 cap. letter and a special charac."/>
+            <input type="password" formControlName="vPassword" class="col-3" placeholder="verify password"/>
+
+            <div class="offset-1 col-4 alert alert-danger" [hidden]="isErrorPassword()">
+                <span>{{getErrorPassword()}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <button type="button" class="btn btn-outline-success offset-4 col-4">verify</button>
+        </div>
+    </form>
+</div>
 <!--
             <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
             <div class="card">
