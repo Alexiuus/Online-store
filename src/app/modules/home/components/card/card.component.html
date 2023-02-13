@@ -1,0 +1,17 @@
+<div class="card my-3">
+  <h5 class="card-title"> {{character.name}} </h5>
+  <img src="{{character.image}}" class="card-img-top" alt="{{character.name}}">
+  <div class="card-body">
+
+    <span class="btn btn-sm float-end" [ngClass]="{
+      'btn-success': character.status.toLowerCase().includes('alive'),
+      'btn-danger': !character.status.toLowerCase().includes('alive')
+    }">
+      Status: {{character.status}}
+    </span>
+
+    <p class="text-muted"> Specie: {{character.species}} </p>
+    <hr/>
+  </div>
+
+</div>
