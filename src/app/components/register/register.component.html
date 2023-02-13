@@ -5,23 +5,23 @@
         <div class="row">
             <input type="email" formControlName="email" class="offset-1 col-6" placeholder="email@domain.com"/>
 
-            <span class="offset-1 col-4 alert alert-danger" [hidden]="isErrorEmail(formUser.get('email'))">
-                {{getErrorEmail(formUser.get('email'))}}
+            <span class="offset-1 col-4 alert alert-danger" [hidden]="isErrorEmail(email)">
+                {{getErrorEmail(email)}}
             </span>
         </div>
         <div class="row">
             <input type="text" formControlName="fName" class="offset-1 col-3"  placeholder="first name"/>
             <input type="text" formControlName="lName" class="col-3" placeholder="last name"/>
 
-            <span class="offset-1 col-4 alert alert-danger" [hidden]="isErrorName(formUser.get('fName'), formUser.get('lName'))">
-                {{getErrorName(formUser.get('fName'), formUser.get('lName'))}}
+            <span class="offset-1 col-4 alert alert-danger" [hidden]="isErrorName(fName, lName)">
+                {{getErrorName(fName, lName)}}
             </span>
         </div>
         <div class="row">
             <input type="text" formControlName="username" class="offset-1 col-6" placeholder="username"/>
             
-            <span class="offset-1 col-4 alert alert-danger" [hidden]="isErrorUsername(formUser.get('username'))">
-                {{getErrorUsername(formUser.get('username'))}}
+            <span class="offset-1 col-4 alert alert-danger" [hidden]="isErrorUsername(username)">
+                {{getErrorUsername(username)}}
             </span>
         </div>
         <div class="row">
@@ -31,12 +31,13 @@
             <input type="password" formControlName="password" class="offset-1 col-3"  placeholder="password"/>
             <input type="password" formControlName="vPassword" class="col-3" placeholder="verify password"/>
 
-            <span class="offset-1 col-4 alert alert-danger" [hidden]="isErrorPassword(formUser.get('password'), formUser.get('vPassword'))">
-                {{getErrorPassword(formUser.get('password'), formUser.get('vPassword'))}}
-            </span>
+            <div class="offset-1 col-4 alert alert-danger" *ngIf="isErrorPassword(password, vPassword)">
+                <span>{{getErrorPassword(password, vPassword)}}</span>
+            </div>
         </div>
         <div class="row">
-            <button type="button" class="btn btn-outline-success offset-4 col-4">verify</button>
+            <button type="button" class="btn btn-outline-success offset-4 col-4" 
+            [disabled]="formUser.invalid && !isErrorPassword(password, vPassword)">verify</button>
         </div>
     </form>
 </div>

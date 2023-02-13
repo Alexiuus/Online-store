@@ -11,11 +11,11 @@ function isEqualPassword(password : any, vPassword : any) : boolean{
   const passwordValue : string = password.value?? '';
   const vPasswordValue : string = vPassword.value?? '';
 
-  return (password === vPassword);
+  return (passwordValue === vPasswordValue);
 }
 
 function isEmptyPassword(password : any) : boolean {
-  const isPasswordRequired : boolean = password?.errors?.['required'];
+  const isPasswordRequired : boolean = password?.errors?.['required']?? false;
 
   return isPasswordRequired;
 }

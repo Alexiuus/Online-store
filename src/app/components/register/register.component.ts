@@ -8,6 +8,8 @@ import {isEmptyPassword, isEqualPassword, isValidPassword} from './verifyData';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
+
+  /* registration form data */
   formUser = new FormGroup({
     username: new FormControl('', Validators.required),
     password : new FormControl('', Validators.required),
@@ -18,11 +20,36 @@ export class RegisterComponent {
     lName : new FormControl('', Validators.required),
   });
 
+  /* get's registration data */
+  get email(){
+    return this.formUser.get('email');
+  }
+
+  get username(){
+    return this.formUser.get('username');
+  }
+
+  get password(){
+    return this.formUser.get('password');
+  }
+
+  get vPassword(){
+    return this.formUser.get('vPassword');
+  }
+
+  get fName(){
+    return this.formUser.get('fName');
+  }
+
+  get lName(){
+    return this.formUser.get('lName');
+  }
+
   isErrorPassword(password : any, vPassword : any) : boolean {
-    const isPristinePassword : Boolean = password?.pristine?? false;
+    const isPristinePassword : boolean = password?.pristine?? false;
     const isPristineVPassword : boolean = vPassword?.pristine?? false;
-    return (isPristinePassword || isPristineVPassword) && 
-            (isEmptyPassword(password) || 
+    console.log(isEmptyPassword(password))
+    return !(isPristinePassword || isPristineVPassword) && (isEmptyPassword(password) || 
             !isEqualPassword(password, vPassword) || 
             !isValidPassword(password));
   }
@@ -42,8 +69,8 @@ export class RegisterComponent {
   getErrorEmail(email : any) : string {
     if (email?.errors?.['required']) return 'empty email';
     else if (email?.errors?.['email']) return 'invalid email';
-    return '';
 
+    return '';
   }
   
   isErrorName(fName : any, lName : any) : boolean {
@@ -53,6 +80,7 @@ export class RegisterComponent {
   getErrorName(fName : any, lName : any) : string {
     if(fName?.errors?.['required'] || fName?.errors?.['required']) return 'empty Name';
     else if (fName?.errors?.['fName'] || lName?.errors?.['lName']) return 'invalid Name';
+
     return '';
   }
 
@@ -63,6 +91,7 @@ export class RegisterComponent {
   getErrorUsername(username : any) : string {
     if(username?.errors?.['required']) return 'empty username';
     else if(username?.errors?.['username']) return 'invalid username';
+
     return '';
   }
 

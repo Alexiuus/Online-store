@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'OnlineStore';
+  nombre = '';
+  error : any;
+
+  receiveData(data: any) {
+    console.log(data);
+  }
 }
