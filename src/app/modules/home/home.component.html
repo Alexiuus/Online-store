@@ -1,16 +1,1 @@
-<div class="container my-5">
-    <hr />
-    <input type="text"
-      class="form-control"
-      placeholder="Rick Sanchez..."
-      (input)="filter($event)"
-    />
-    <hr />
-  
-    <div class="grid">
-      <ng-container *ngFor="let character of characters">
-          <app-card [character]="character"></app-card>
-      </ng-container>
-    </div>
-</div>
-  
+<app-nav></app-nav>
