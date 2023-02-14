@@ -18,7 +18,6 @@ $background-color-title: #7485e649;
     background-color: $color-primary;
     border: 1px solid $color-border;
     margin-top: 10vh;
-    width: 50vw;
     border-radius: 5px;
     padding: 10px;
 }
@@ -39,7 +38,7 @@ $background-color-title: #7485e649;
 }
 
 .introRegister, .introsuccessFully{
-    padding: 0px 5vw 0px 5vw;
+    padding: 0px min(5vw, 5vh) 0px min(5vw, 5vh);
     background-color: $color-secondary;
     color: white;
     border-radius: 5px;
@@ -54,8 +53,6 @@ $background-color-title: #7485e649;
     background-color: $color-primary;
     border: 1px solid $color-border;
     margin-top: 20vh;
-    width: 30vw;
-    height: 40vh;
     border-radius: 5px;
     padding: 10px;
 }
