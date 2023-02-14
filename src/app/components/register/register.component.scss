@@ -1,10 +1,23 @@
+$color-primary: #c3caff;
+$color-secondary: #7485e6;
+$color-active-buttom:#001e63;
+$color-border: #0b244d;
+$color-title: #21447c;
+$color-important: #ffb54e;
+$color-danger: #842029;
+$background-color-title: #7485e649;
+
 .title{
-    color: #21447c;
+    background-color: $background-color-title;
+    border-radius: 5px;
+    color: $color-title;
+    border-bottom: 1px solid $color-border;
 }
 
 .register {
-    background-color: #92b2ff;
-    margin-top: 20vh;
+    background-color: $color-primary;
+    border: 1px solid $color-border;
+    margin-top: 10vh;
     width: 50vw;
     border-radius: 5px;
     padding: 10px;
@@ -20,18 +33,57 @@
 }
 
 .image-registred{
-    width: min(20vw,20vh);
-    height: min(20vw,20vh);
+    width: min(15vw,15vh);
+    height: min(15vw,15vh);
+    margin: 10px;
 }
 
-.introRegister{
+.introRegister, .introsuccessFully{
     padding: 0px 5vw 0px 5vw;
-    background-color: #456fb4;
+    background-color: $color-secondary;
     color: white;
     border-radius: 5px;
-    border: 1px solid #0b244d;
+    border: 1px solid $color-border;
 }
 
 .important {
-    color: #ffb54e;
+    color: $color-important;
+}
+
+.successfullyRegister{
+    background-color: $color-primary;
+    border: 1px solid $color-border;
+    margin-top: 20vh;
+    width: 30vw;
+    height: 40vh;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.alert-danger{
+    border: 1px solid $color-danger;
+}
+
+.input-form{
+    border: none; // Ancho y estilo del borde
+    border-bottom: 1px solid $color-border;
+    border-left: 1px solid $color-border;
+    outline: 0px;
+    &::placeholder {
+        color: #4d58a0; /* Cambia el color del placeholder a rojo */
+      }
+}
+
+.input-form::after{
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 100%;
+    border-bottom: 1px solid $color-active-buttom;
+}
+
+.input-form:focus{
+    border-bottom: 2px solid $color-active-buttom;
+    border-left: 2px solid $color-active-buttom;
 }

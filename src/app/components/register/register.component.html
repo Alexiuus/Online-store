@@ -1,36 +1,38 @@
 <div class="container text-center register" *ngIf="!isRegister">
-    <h1 class="title">Register</h1>
+    <div class="row">
+        <div class="col-title offset-4 col-4"><h1 class="title">Register</h1></div>
+    </div>
     <p class="introRegister">Validate your data so that no one can enter or create an account in your name.<br/>
         <b class='important'>Password must contain one uppercase letter, one special character, and a minimum of 8 characters.</b></p>
     <form [formGroup]="formUser">
         <div class="row">
-            <input type="email" formControlName="email" class="offset-1 col-6" placeholder="email@domain.com"/>
+            <input type="email" formControlName="email" class="input-form offset-1 col-6" placeholder="email@domain.com"/>
 
             <span class="offset-1 col-4 alert alert-danger" *ngIf="!isErrorEmail(email)">
                 {{getErrorEmail(email)}}
             </span>
         </div>
         <div class="row">
-            <input type="text" formControlName="fName" class="offset-1 col-3"  placeholder="first name"/>
-            <input type="text" formControlName="lName" class="col-3" placeholder="last name"/>
+            <input type="text" formControlName="fName" class="input-form offset-1 col-3"  placeholder="first name"/>
+            <input type="text" formControlName="lName" class="input-form col-3" placeholder="last name"/>
 
             <span class="offset-1 col-4 alert alert-danger" *ngIf="!isErrorName(fName, lName)">
                 {{getErrorName(fName, lName)}}
             </span>
         </div>
         <div class="row">
-            <input type="text" formControlName="username" class="offset-1 col-6" placeholder="username"/>
+            <input type="text" formControlName="username" class="input-form offset-1 col-6" placeholder="username"/>
             
             <span class="offset-1 col-4 alert alert-danger" *ngIf="!isErrorUsername(username)">
                 {{getErrorUsername(username)}}
             </span>
         </div>
         <div class="row">
-            <input type="text" formControlName="phone" class="offset-1 col-6" placeholder="phone (Optional)"/>
+            <input type="text" formControlName="phone" class="input-form offset-1 col-6" placeholder="phone (Optional)"/>
         </div>
         <div class="row">
-            <input type="password" formControlName="password" class="offset-1 col-3"  placeholder="password"/>
-            <input type="password" formControlName="vPassword" class="col-3" placeholder="verify password"/>
+            <input type="password" formControlName="password" class="input-form offset-1 col-3"  placeholder="password"/>
+            <input type="password" formControlName="vPassword" class="input-form col-3" placeholder="verify password"/>
 
             <div class="offset-1 col-4 alert alert-danger" *ngIf="isErrorPassword(password, vPassword)">
                 <span>{{getErrorPassword(password, vPassword)}}</span>
@@ -43,7 +45,10 @@
     </form>
 </div>
 
-<div class="container text-center register" *ngIf="isRegister">
-    <h1>successfully registered</h1>
-    <img class="image-registred" src={{urlImagelike}} alt="f">
+<div class="container text-center successfullyRegister" *ngIf="isRegister">
+    <h1 class="title">successfully registered</h1>
+    <div class="introsuccessFully">
+        <p>Reminder: <b class='important'>There is no backend, you can't register</b>.</p>
+        <img class="image-registred" src={{urlImagelike}} alt="f">
+    </div>
 </div>
