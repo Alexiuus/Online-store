@@ -40,7 +40,7 @@
         </div>
         <div class="row">
             <button type="button" class="btn btn-outline-primary offset-4 col-4" 
-            [disabled]="formUser.invalid && !isErrorPassword(password, vPassword)" (click)="sendDataRegister()">register</button>
+            [disabled]="formUser.invalid || isErrorPassword(password, vPassword)" (click)="sendDataRegister()">register</button>
         </div>
     </form>
 </div>

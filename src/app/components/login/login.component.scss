@@ -1,0 +1,86 @@
+$color-primary: #c3caff;
+$color-secondary: #7485e6;
+$color-active-buttom:#001e63;
+$color-border: #0b244d;
+$color-title: #21447c;
+$color-important: #ffb54e;
+$color-danger: #842029;
+$background-color-title: #7485e649;
+
+.title{
+    background-color: $background-color-title;
+    border-radius: 5px;
+    color: $color-title;
+    border-bottom: 1px solid $color-border;
+}
+
+.register {
+    background-color: $color-primary;
+    border: 1px solid $color-border;
+    margin-top: 10vh;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.row{
+    margin-top: 10px;
+}
+
+.alert {
+    margin: 0px 0px 0px 10px;
+    padding: 5px 12px 5px 12px;
+}
+
+.image-registred{
+    width: min(15vw,15vh);
+    height: min(15vw,15vh);
+    margin: 10px;
+}
+
+.introRegister, .introsuccessFully{
+    padding: 0px min(5vw, 5vh) 0px min(5vw, 5vh);
+    background-color: $color-secondary;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid $color-border;
+}
+
+.important {
+    color: $color-important;
+}
+
+.successfullyRegister{
+    background-color: $color-primary;
+    border: 1px solid $color-border;
+    margin-top: 20vh;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.alert-danger{
+    border: 1px solid $color-danger;
+}
+
+.input-form{
+    border: none; // Ancho y estilo del borde
+    border-bottom: 1px solid $color-border;
+    border-left: 1px solid $color-border;
+    outline: 0px;
+    &::placeholder {
+        color: #4d58a0; /* Cambia el color del placeholder a rojo */
+      }
+}
+
+.input-form::after{
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 100%;
+    border-bottom: 1px solid $color-active-buttom;
+}
+
+.input-form:focus{
+    border-bottom: 2px solid $color-active-buttom;
+    border-left: 2px solid $color-active-buttom;
+}
