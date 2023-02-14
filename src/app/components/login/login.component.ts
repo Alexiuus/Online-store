@@ -47,8 +47,8 @@ export class LoginComponent {
   }
 
   getErrorUsername(username : any) : string {
-    if(username?.errors?.['required']) return 'empty username';
-    else if(username?.errors?.['username']) return 'invalid username';
+    if(username?.errors?.['required']) return 'Empty username';
+    else if(username?.errors?.['username']) return 'Invalid username';
 
     return '';
   }
