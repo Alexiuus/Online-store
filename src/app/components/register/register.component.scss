@@ -1,5 +1,9 @@
+.title{
+    color: #21447c;
+}
+
 .register {
-    background-color: aquamarine;
+    background-color: #92b2ff;
     margin-top: 20vh;
     width: 50vw;
     border-radius: 5px;
@@ -9,7 +13,25 @@
 .row{
     margin-top: 10px;
 }
+
 .alert {
     margin: 0px 0px 0px 10px;
     padding: 5px 12px 5px 12px;
+}
+
+.image-registred{
+    width: min(20vw,20vh);
+    height: min(20vw,20vh);
+}
+
+.introRegister{
+    padding: 0px 5vw 0px 5vw;
+    background-color: #456fb4;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid #0b244d;
+}
+
+.important {
+    color: #ffb54e;
 }

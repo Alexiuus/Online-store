@@ -19,6 +19,9 @@ export class RegisterComponent {
     fName : new FormControl('', Validators.required),  
     lName : new FormControl('', Validators.required),
   });
+  
+  isRegister : boolean = false;
+  urlImagelike : string = 'https://static.vecteezy.com/system/resources/previews/010/142/101/original/check-mark-icon-sign-symbol-design-free-png.png';
 
   /* get's registration data */
   get email(){
@@ -48,7 +51,7 @@ export class RegisterComponent {
   isErrorPassword(password : any, vPassword : any) : boolean {
     const isPristinePassword : boolean = password?.pristine?? false;
     const isPristineVPassword : boolean = vPassword?.pristine?? false;
-    console.log(isEmptyPassword(password))
+
     return !(isPristinePassword || isPristineVPassword) && (isEmptyPassword(password) || 
             !isEqualPassword(password, vPassword) || 
             !isValidPassword(password));
@@ -78,7 +81,10 @@ export class RegisterComponent {
   }
 
   getErrorName(fName : any, lName : any) : string {
-    if(fName?.errors?.['required'] || fName?.errors?.['required']) return 'empty Name';
+    const fNameRequired = fName?.errors?.['required']?? true;
+    const lNameRequired = fName?.errors?.['required']?? true;
+
+    if(fNameRequired || lNameRequired) return 'empty Name';
     else if (fName?.errors?.['fName'] || lName?.errors?.['lName']) return 'invalid Name';
 
     return '';
@@ -95,4 +101,8 @@ export class RegisterComponent {
     return '';
   }
 
+  sendDataRegister(){
+    console.log("Registrando")
+    this.isRegister = true;
+  }
 }
