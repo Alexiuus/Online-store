@@ -8,10 +8,12 @@ import { RegisterComponent } from 'src/app/components/register/register.componen
 import {MatToolbarModule} from '@angular/material/toolbar'; 
 import {MatIconModule} from '@angular/material/icon'; 
 import {MatButtonModule} from '@angular/material/button'; 
+import { LoginComponent } from 'src/app/components/login/login.component';
 @NgModule({
   declarations: [
     UserComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     ReactiveFormsModule,

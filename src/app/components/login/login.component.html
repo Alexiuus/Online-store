@@ -1,0 +1,38 @@
+<div class="container text-center register col-lg-6 col-md-8 col-sm-7" *ngIf="!isRegister">
+    <div class="row">
+        <div class="col-title offset-4 col-4"><h1 class="title">Login</h1></div>
+    </div>
+    <form [formGroup]="formUser">
+        <div class="row">
+            <input type="text" formControlName="username" class="input-form offset-1 col-5" placeholder="username"/>
+            
+            <span class="offset-1 col-4 alert alert-danger" *ngIf="!isErrorUsername(username)">
+                {{getErrorUsername(username)}}
+            </span>
+        </div>
+        <div class="row">
+            <input type="password" formControlName="password" class="input-form offset-1 col-5"  placeholder="password"/>
+
+                <span class="offset-1 col-4 alert alert-danger" *ngIf="isErrorPassword(password)">
+                    {{getErrorPassword(password)}}
+                </span>
+        </div>
+        <div class="row">
+            <button type="button" class="btn btn-outline-primary offset-4 col-4" 
+            [disabled]="formUser.invalid" (click)="sendDataRegister()">login</button>
+        </div>
+        <div class="row">
+            <div class="col offset-4">
+                <h5 class="col-6">do you have an account?: <a href="user/register">register</a></h5>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="container text-center successfullyRegister col-lg-4 col-md-4 col-sm-4" *ngIf="isRegister">
+    <h1 class="title">successfully log in</h1>
+    <div class="introsuccessFully">
+        <p>Reminder: <b class='important'>There is no backend, you can't log in</b>.</p>
+        <img class="image-registred" src={{urlImagelike}} alt="f">
+    </div>
+</div>

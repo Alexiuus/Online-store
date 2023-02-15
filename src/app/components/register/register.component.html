@@ -1,4 +1,4 @@
-<div class="container text-center register col-lg-6 col-md-8 col-sm-7" *ngIf="!isRegister">
+<div class="container text-center register col-lg-6 col-md-10 col-sm-9" *ngIf="!isRegister">
     <div class="row">
         <div class="col-title offset-4 col-4"><h1 class="title">Register</h1></div>
     </div>
@@ -40,7 +40,7 @@
         </div>
         <div class="row">
             <button type="button" class="btn btn-outline-primary offset-4 col-4" 
-            [disabled]="formUser.invalid && !isErrorPassword(password, vPassword)" (click)="sendDataRegister()">register</button>
+            [disabled]="formUser.invalid || isErrorPassword(password, vPassword)" (click)="sendDataRegister()">register</button>
         </div>
     </form>
 </div>

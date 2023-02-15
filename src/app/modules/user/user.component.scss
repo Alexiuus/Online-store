@@ -2,8 +2,8 @@ $color-primary: #c3caff;
 $color-button: #828fee;
 
 .button-back{
-    width: max(3vw, 3vh);
-    height: max(3vw, 3vh);
+    width: 40px;
+    height: 40px;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
     background-color: $color-button;
 }
