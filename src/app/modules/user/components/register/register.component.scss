@@ -1,11 +1,11 @@
-$color-primary: #c3caff;
-$color-secondary: #7485e6;
+$color-primary: #9cb6e7;
+$color-secondary: #3f51b5;
 $color-active-buttom:#001e63;
 $color-border: #0b244d;
 $color-title: #21447c;
 $color-important: #ffb54e;
 $color-danger: #842029;
-$background-color-title: #7485e649;
+$background-color-title: #3f51b529;
 
 .title{
     background-color: $background-color-title;
@@ -83,4 +83,8 @@ $background-color-title: #7485e649;
 .input-form:focus{
     border-bottom: 2px solid $color-active-buttom;
     border-left: 2px solid $color-active-buttom;
+}
+
+.button-register {
+    border: 1px solid $color-active-buttom;
 }
