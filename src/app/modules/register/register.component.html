@@ -1,0 +1,42 @@
+<div class="container text-center register">
+    <h1>Register</h1>
+    <p>Validate your data so that no one can enter or create an account in your name.</p>
+    <form [formGroup]="formUser">
+        <div class="row">
+            <input type="email" formControlName="email" class="offset-1 col-6" placeholder="email@domain.com"/>
+
+            <span class="offset-1 col-4 alert alert-danger" [hidden]="isErrorEmail(formUser.get('email'))">
+                {{getErrorEmail(formUser.get('email'))}}
+            </span>
+        </div>
+        <div class="row">
+            <input type="text" formControlName="fName" class="offset-1 col-3"  placeholder="first name"/>
+            <input type="text" formControlName="lName" class="col-3" placeholder="last name"/>
+
+            <span class="offset-1 col-4 alert alert-danger" [hidden]="isErrorName(formUser.get('fName'), formUser.get('lName'))">
+                {{getErrorName(formUser.get('fName'), formUser.get('lName'))}}
+            </span>
+        </div>
+        <div class="row">
+            <input type="text" formControlName="username" class="offset-1 col-6" placeholder="username"/>
+            
+            <span class="offset-1 col-4 alert alert-danger" [hidden]="isErrorUsername(formUser.get('username'))">
+                {{getErrorUsername(formUser.get('username'))}}
+            </span>
+        </div>
+        <div class="row">
+            <input type="text" formControlName="phone" class="offset-1 col-6" placeholder="phone (Optional)"/>
+        </div>
+        <div class="row">
+            <input type="password" formControlName="password" class="offset-1 col-3"  placeholder="password"/>
+            <input type="password" formControlName="vPassword" class="col-3" placeholder="verify password"/>
+
+            <span class="offset-1 col-4 alert alert-danger" [hidden]="isErrorPassword(formUser.get('password'), formUser.get('vPassword'))">
+                {{getErrorPassword(formUser.get('password'), formUser.get('vPassword'))}}
+            </span>
+        </div>
+        <div class="row">
+            <button type="button" class="btn btn-outline-success offset-4 col-4">verify</button>
+        </div>
+    </form>
+</div>
