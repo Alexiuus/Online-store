@@ -15,19 +15,19 @@ export class DashboardComponent {
       if (matches) {
         return [
           { title: ProductsExampleList[0].name, cols: 1, rows: 1, link: ProductsExampleList[0].image },
-          { title: ProductsExampleList[1].name, cSkirtols: 1, rows: 1, link:  ProductsExampleList[1].image },
-          { title: ProductsExampleList[2].name, cols: 1, rows: 1, link:  ProductsExampleList[2].image },
-          { title: ProductsExampleList[3].name, cols: 1, rows: 1, link:  ProductsExampleList[3].image },
-          { title: ProductsExampleList[4].name, cols: 1, rows: 1, link:  ProductsExampleList[4].image }
+          { title: ProductsExampleList[1].name, cols: 1, rows: 1, link: ProductsExampleList[1].image },
+          { title: ProductsExampleList[2].name, cols: 1, rows: 1, link: ProductsExampleList[2].image },
+          { title: ProductsExampleList[3].name, cols: 1, rows: 1, link: ProductsExampleList[3].image },
+          { title: ProductsExampleList[4].name, cols: 1, rows: 1, link: ProductsExampleList[4].image }
         ];
       }
 
       return [
-        { title: ProductsExampleList[0].name, cols: 1, rows: 1, link:  ProductsExampleList[0].image  },
-        { title: ProductsExampleList[1].name, cols: 1, rows: 1, link:  ProductsExampleList[1].image  },
-        { title: ProductsExampleList[2].name, cols: 1, rows: 1, link:  ProductsExampleList[2].image  },
-        { title: ProductsExampleList[3].name, cols: 1, rows: 1, link:  ProductsExampleList[3].image  },
-        { title: ProductsExampleList[4].name, cols: 1, rows: 1, link:  ProductsExampleList[4].image  }
+        { title: ProductsExampleList[0].name, cols: 1, rows: 1, link: ProductsExampleList[0].image  },
+        { title: ProductsExampleList[1].name, cols: 1, rows: 1, link: ProductsExampleList[1].image  },
+        { title: ProductsExampleList[2].name, cols: 1, rows: 1, link: ProductsExampleList[2].image  },
+        { title: ProductsExampleList[3].name, cols: 1, rows: 1, link: ProductsExampleList[3].image  },
+        { title: ProductsExampleList[4].name, cols: 1, rows: 1, link: ProductsExampleList[4].image  }
       ];
     })
   );
