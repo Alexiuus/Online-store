@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { ProductsExampleList } from '../../example/ProductsExample';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,23 +15,27 @@ export class DashboardComponent {
     map(({ matches }) => {
       if (matches) {
         return [
-          { title: ProductsExampleList[0].name, cols: 1, rows: 1, link: ProductsExampleList[0].image },
-          { title: ProductsExampleList[1].name, cols: 1, rows: 1, link: ProductsExampleList[1].image },
-          { title: ProductsExampleList[2].name, cols: 1, rows: 1, link: ProductsExampleList[2].image },
-          { title: ProductsExampleList[3].name, cols: 1, rows: 1, link: ProductsExampleList[3].image },
-          { title: ProductsExampleList[4].name, cols: 1, rows: 1, link: ProductsExampleList[4].image }
+          { title: ProductsExampleList[0].name, cols: 1, rows: 1, link: ProductsExampleList[0].image, id: ProductsExampleList[0].id },
+          { title: ProductsExampleList[1].name, cols: 1, rows: 1, link: ProductsExampleList[1].image, id: ProductsExampleList[1].id },
+          { title: ProductsExampleList[2].name, cols: 1, rows: 1, link: ProductsExampleList[2].image, id: ProductsExampleList[2].id },
+          { title: ProductsExampleList[3].name, cols: 1, rows: 1, link: ProductsExampleList[3].image, id: ProductsExampleList[3].id },
+          { title: ProductsExampleList[4].name, cols: 1, rows: 1, link: ProductsExampleList[4].image, id: ProductsExampleList[4].id }
         ];
       }
 
       return [
-        { title: ProductsExampleList[0].name, cols: 1, rows: 1, link: ProductsExampleList[0].image  },
-        { title: ProductsExampleList[1].name, cols: 1, rows: 1, link: ProductsExampleList[1].image  },
-        { title: ProductsExampleList[2].name, cols: 1, rows: 1, link: ProductsExampleList[2].image  },
-        { title: ProductsExampleList[3].name, cols: 1, rows: 1, link: ProductsExampleList[3].image  },
-        { title: ProductsExampleList[4].name, cols: 1, rows: 1, link: ProductsExampleList[4].image  }
+        { title: ProductsExampleList[0].name, cols: 1, rows: 1, link: ProductsExampleList[0].image, id: ProductsExampleList[0].id  },
+        { title: ProductsExampleList[1].name, cols: 1, rows: 1, link: ProductsExampleList[1].image, id: ProductsExampleList[1].id  },
+        { title: ProductsExampleList[2].name, cols: 1, rows: 1, link: ProductsExampleList[2].image, id: ProductsExampleList[2].id  },
+        { title: ProductsExampleList[3].name, cols: 1, rows: 1, link: ProductsExampleList[3].image, id: ProductsExampleList[3].id  },
+        { title: ProductsExampleList[4].name, cols: 1, rows: 1, link: ProductsExampleList[4].image, id: ProductsExampleList[4].id  }
       ];
     })
   );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  onClickProduct(id_product : number){
+    this.viewProduct.viewProductSelect(id_product);
+  }
+
+  constructor(private breakpointObserver: BreakpointObserver, private viewProduct : ProductService) {}
 }

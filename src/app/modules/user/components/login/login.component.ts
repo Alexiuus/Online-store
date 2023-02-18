@@ -54,7 +54,6 @@ export class LoginComponent {
   }
 
   sendDataRegister(){
-    console.log("Registrando")
     this.isRegister = true;
   }
 }
