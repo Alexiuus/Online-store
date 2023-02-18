@@ -1,4 +1,11 @@
-export const ProductsExampleList = [
+export type Product = {
+    id: number,
+    name: string,
+    price: number,
+    image: string
+}
+
+export const ProductsExampleList : Product[] = [
     {
         id: 1,
         name: "Shirt",

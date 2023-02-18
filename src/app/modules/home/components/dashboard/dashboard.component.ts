@@ -3,6 +3,7 @@ import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { ProductsExampleList } from '../../example/ProductsExample';
 import { ProductService } from 'src/app/services/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -34,8 +35,9 @@ export class DashboardComponent {
   );
 
   onClickProduct(id_product : number){
-    this.viewProduct.viewProductSelect(id_product);
+    this.productSelect.Set_id_product(id_product);
+    this.router.navigate(['/product/2']);
   }
 
-  constructor(private breakpointObserver: BreakpointObserver, private viewProduct : ProductService) {}
+  constructor(private breakpointObserver: BreakpointObserver, private productSelect : ProductService, private router: Router) {}
 }
