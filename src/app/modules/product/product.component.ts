@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { ProductService } from 'src/app/services/product.service';
 import { ProductsExampleList, Product } from '../home/example/ProductsExample';
 
 @Component({
@@ -15,9 +14,9 @@ export class ProductComponent implements OnInit {
   constructor(private _route:ActivatedRoute) { }
 
   ngOnInit() {
-    this._route.params.subscribe((params:Params) =>{
-      this.id_product = params['id_product'];
-      this.product = ProductsExampleList[this.id_product];
+    this._route.params.subscribe((params : Params) =>{
+      this.id_product = parseInt(params['id_product']) ;
+      this.product = ProductsExampleList.find(elem => elem.id === this.id_product)?? ProductsExampleList[0];
     });
   }
 }

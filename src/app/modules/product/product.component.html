@@ -1,4 +1,26 @@
-<h1>Product</h1>
-<p>name: {{product.name}}</p>
-<p>price: {{product.price}}</p>
-<img [src]="product.image" alt="No image found">
+<div class="product container">
+    <div class="row">
+        <div class="container-image-product offset-2 col-5">
+            <img class="image-product" [src]="product.image" alt="No image found">
+        </div>
+        <div class="offset-2 col-2">
+            <h1 class="product-name">{{product.name}}</h1>
+            <h1 class="product-price">${{product.price}}</h1>
+            <h2>Available stock</h2>
+            <button>buy now</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="offset-2 col-5">
+            <h1 class="description">description</h1>
+            <p>
+
+                Lorem ipsum dolor sit amet. Cum voluptas ratione sed corporis fugiat a aperiam molestiae est enim doloremque aut odit voluptatum qui voluptatem distinctio ut provident necessitatibus. Ea rerum laudantium id quis officia non deserunt repellat ea repudiandae debitis eos laborum quaerat.
+                
+                A voluptates soluta sit harum facere et dignissimos neque At quia possimus aut natus reiciendis ut dolorum quaerat est nulla natus. Aut exercitationem maxime est quia iste sit quas voluptatem et sunt recusandae eos sint debitis aut dolores omnis qui doloremque eveniet. Aut harum debitis hic ducimus corporis qui beatae totam a repellat fuga 33 similique quod est facere officiis.
+                
+                Vel saepe laboriosam et accusamus recusandae non temporibus optio in suscipit repellat est doloribus alias et incidunt iste sit sint vitae. Id sint blanditiis et officiis minus est impedit similique. In optio tenetur quo adipisci aperiam ut praesentium aliquid ex quisquam cupiditate a sint similique At reprehenderit galisum.
+            </p>
+        </div>
+    </div>
+</div>
