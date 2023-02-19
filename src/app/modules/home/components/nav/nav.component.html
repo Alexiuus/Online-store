@@ -22,13 +22,19 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>OnlineStore</span>
+      <input type="text"
+      class="form-control"
+      placeholder="Search..."
+      input (keydown.enter)="filter($event)"
+      />
+      
       <div class="user-buttons">
         <button mat-raised-button routerLink="/user/login" color="primary">Log in</button>
         <button mat-raised-button routerLink="/user/register" color="primary">Register</button>
       </div>
       
     </mat-toolbar>
-    <app-dashboard></app-dashboard>
+    <app-dashboard [search]="search"></app-dashboard>
 
   </mat-sidenav-content>
 
