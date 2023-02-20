@@ -6,20 +6,20 @@
         <div class="row">
             <input type="text" formControlName="username" class="input-form offset-1 col-5" placeholder="username"/>
             
-            <span class="offset-1 col-4 alert alert-danger" *ngIf="!isErrorUsername(username)">
-                {{getErrorUsername(username)}}
+            <span class="offset-1 col-4 alert alert-danger" *ngIf="!validate.isErrorUsername(username)">
+                {{validate.getErrorUsername(username)}}
             </span>
         </div>
         <div class="row">
             <input type="password" formControlName="password" class="input-form offset-1 col-5"  placeholder="password"/>
 
-                <span class="offset-1 col-4 alert alert-danger" *ngIf="isErrorPassword(password)">
-                    {{getErrorPassword(password)}}
+                <span class="offset-1 col-4 alert alert-danger" *ngIf="validate.isErrorPassword(password, password)">
+                    {{validate.getErrorPassword(password, password)}}
                 </span>
         </div>
         <div class="row">
             <button type="button" class="btn btn-primary button-login offset-4 col-4" 
-            [disabled]="formUser.invalid" (click)="sendDataRegister()">login</button>
+            [disabled]="formUser.invalid || validate.isErrorPassword(password, password)" (click)="sendDataRegister()">login</button>
         </div>
         <div class="row">
             <div class="col offset-4">

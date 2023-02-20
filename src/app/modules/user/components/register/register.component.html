@@ -8,23 +8,23 @@
         <div class="row">
             <input type="email" formControlName="email" class="input-form offset-1 col-6" placeholder="email@domain.com"/>
 
-            <span class="offset-1 col-4 alert alert-danger" *ngIf="!isErrorEmail(email)">
-                {{getErrorEmail(email)}}
+            <span class="offset-1 col-4 alert alert-danger" *ngIf="!validate.isErrorEmail(email)">
+                {{validate.getErrorEmail(email)}}
             </span>
         </div>
         <div class="row">
             <input type="text" formControlName="fName" class="input-form offset-1 col-3"  placeholder="first name"/>
             <input type="text" formControlName="lName" class="input-form col-3" placeholder="last name"/>
 
-            <span class="offset-1 col-4 alert alert-danger" *ngIf="!isErrorName(fName, lName)">
-                {{getErrorName(fName, lName)}}
+            <span class="offset-1 col-4 alert alert-danger" *ngIf="!validate.isErrorName(fName, lName)">
+                {{validate.getErrorName(fName, lName)}}
             </span>
         </div>
         <div class="row">
             <input type="text" formControlName="username" class="input-form offset-1 col-6" placeholder="username"/>
             
-            <span class="offset-1 col-4 alert alert-danger" *ngIf="!isErrorUsername(username)">
-                {{getErrorUsername(username)}}
+            <span class="offset-1 col-4 alert alert-danger" *ngIf="!validate.isErrorUsername(username)">
+                {{validate.getErrorUsername(username)}}
             </span>
         </div>
         <div class="row">
@@ -34,13 +34,13 @@
             <input type="password" formControlName="password" class="input-form offset-1 col-3"  placeholder="password"/>
             <input type="password" formControlName="vPassword" class="input-form col-3" placeholder="verify password"/>
 
-            <div class="offset-1 col-4 alert alert-danger" *ngIf="isErrorPassword(password, vPassword)">
-                <span>{{getErrorPassword(password, vPassword)}}</span>
+            <div class="offset-1 col-4 alert alert-danger" *ngIf="validate.isErrorPassword(password,vPassword)">
+                <span>{{validate.getErrorPassword(password,vPassword)}}</span>
             </div>
         </div>
         <div class="row">
             <button type="button" class="btn btn-primary button-register offset-4 col-4" 
-            [disabled]="formUser.invalid || isErrorPassword(password, vPassword)" (click)="sendDataRegister()">register</button>
+            [disabled]="formUser.invalid || validate.isErrorPassword(password,vPassword)" (click)="sendDataRegister()">register</button>
         </div>
     </form>
 </div>

@@ -9,7 +9,6 @@ import { ProductsExampleList, Product } from '../home/example/ProductsExample';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
-  private id_product : number = 0;
   product : Product = ProductsExampleList[0];
   isMobile : boolean = false;
 
@@ -18,12 +17,12 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
     /* route parameters */
     this._route.params.subscribe((params : Params) =>{
-      this.id_product = parseInt(params['id_product']) ;
-      this.product = ProductsExampleList.find(elem => elem.id === this.id_product)?? ProductsExampleList[0];
+      const id_product : number = parseInt(params['id_product']) ;
+      this.product = ProductsExampleList.find(elem => elem.id === id_product)?? ProductsExampleList[0];
     });
     
     /* check if the screen is mobile */
-    const customQuery = '(max-width: 768px)';
+    const customQuery : string = '(max-width: 768px)';
     this.windowObserver.observe([customQuery]).subscribe(
       result => this.isMobile = result.matches
     )
