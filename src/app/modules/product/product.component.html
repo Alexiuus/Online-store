@@ -1,26 +1,25 @@
 <div class="product container">
-    <div class="row">
-        <div class="container-image-product offset-2 col-5">
+    <div class="data-product row">
+        <div class="container-image-product col-7">
             <img class="image-product" [src]="product.image" alt="No image found">
         </div>
-        <div class="offset-2 col-2">
-            <h1 class="product-name">{{product.name}}</h1>
-            <h1 class="product-price">${{product.price}}</h1>
-            <h2>Available stock</h2>
-            <button>buy now</button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="offset-2 col-5">
-            <h1 class="description">description</h1>
-            <p>
-
-                Lorem ipsum dolor sit amet. Cum voluptas ratione sed corporis fugiat a aperiam molestiae est enim doloremque aut odit voluptatum qui voluptatem distinctio ut provident necessitatibus. Ea rerum laudantium id quis officia non deserunt repellat ea repudiandae debitis eos laborum quaerat.
-                
-                A voluptates soluta sit harum facere et dignissimos neque At quia possimus aut natus reiciendis ut dolorum quaerat est nulla natus. Aut exercitationem maxime est quia iste sit quas voluptatem et sunt recusandae eos sint debitis aut dolores omnis qui doloremque eveniet. Aut harum debitis hic ducimus corporis qui beatae totam a repellat fuga 33 similique quod est facere officiis.
-                
-                Vel saepe laboriosam et accusamus recusandae non temporibus optio in suscipit repellat est doloribus alias et incidunt iste sit sint vitae. Id sint blanditiis et officiis minus est impedit similique. In optio tenetur quo adipisci aperiam ut praesentium aliquid ex quisquam cupiditate a sint similique At reprehenderit galisum.
-            </p>
+        <div class="data-pay offset-1 col-4">
+            <h1 class="product-name"><b>{{product.name}}</b></h1>
+            <hr>
+            <h1 class="product-price">price: <b class="price">${{product.price}}</b></h1>
+            <div class="stock">
+                <div class="offset-4 col-4">
+                    <select class="select-size form-select" id="options">
+                        <option>Opción 1</option>
+                        <option>Opción 2</option>
+                        <option>Opción 3</option>
+                      </select>
+                </div>
+                <input class="offset-4 col-4" type="number" placeholder="amount"/>
+            </div>
+            <hr>
+            <button class="button btn btn-primary offset-3 col-6">buy now</button>
+            <button class="button btn btn-outline-primary offset-3 col-6">add to cart</button>
         </div>
     </div>
 </div>
