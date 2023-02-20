@@ -6,7 +6,7 @@ $color-border-data: #959bb8;
 $color-title: #2f5eca;
 $color-price: #506aa7;
 
-.container-image-product{
+.container-image-product-desktop{
     background-color: $color-font-image;
     display: flex;
     justify-content: center;
@@ -26,6 +26,7 @@ $color-price: #506aa7;
 }
 
 .product-price{
+    font-size: min(4vh, 4vw);
     overflow: hidden;
     color: $color-price;
 }
@@ -38,7 +39,7 @@ $color-price: #506aa7;
 }
 
 .product-name{
-    font-size: 30px;
+    font-size: min(6vh, 6vw);
     word-wrap: break-word;
     overflow: hidden;
     line-height: 1.2em;
@@ -46,27 +47,17 @@ $color-price: #506aa7;
     text-overflow: ellipsis;
 }
 
-.stock{
-    margin-top: 0px;
-}
-
 .data-product{
     padding: 20px 0px 20px 0px;
 }
 
-.data-pay{
+.data-pay-desktop{
     border: 1px solid $color-border-data;
     border-right: transparent;
     border-radius: 3px 0px 0px 3px;
     padding-top: 20px;
     background-color: $color-secondary;
     color: $color-title;
-}
-
-.description{
-    border: 1px solid $color-border;
-    border-radius: 3px;
-    padding-top: 20px;
 }
 
 .button{
@@ -77,4 +68,15 @@ $color-price: #506aa7;
     border-radius: 0px;
     padding: 2px 2px 2px 10px;
     margin-bottom: 10px;
+}
+.amount{
+    margin-bottom: 10px;
+}
+.purchase-title{
+    font-size: min(3vh, 3vw);
+    margin: 0px;
+}
+
+.purchase-data{
+    border-top: 1px solid $color-price;
 }

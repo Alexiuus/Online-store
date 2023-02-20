@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ProductsExampleList, Product } from '../home/example/ProductsExample';
 
@@ -10,7 +10,12 @@ import { ProductsExampleList, Product } from '../home/example/ProductsExample';
 export class ProductComponent implements OnInit {
   private id_product : number = 0;
   product : Product = ProductsExampleList[0];
+  isMobile = window.innerWidth <= 768;
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.isMobile = event.target.innerWidth <= 768;
+  }
   constructor(private _route:ActivatedRoute) { }
 
   ngOnInit() {
