@@ -1,31 +1,46 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { ProductsExampleList } from '../../example/ProductsExample';
 import { Product } from '../../interfaces/Products';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnChanges{
+export class DashboardComponent {
 
-  @Input() search: string = "";
+  name_product: string = '';
   cards: any;
+  urlSubscription: any;
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver, private route: ActivatedRoute, private router: Router) {}
 
-  ngOnChanges(): void {
-    this.cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
+  ngOnInit() {
+    this.urlSubscription = this.route.params.subscribe( params => {
+      if (typeof(params['filter']) === 'undefined' || params['filter'] === '') {
+        this.name_product = '';
+        this.router.navigate(['home']);
+      }
+      else {
+        this.name_product = params['filter'];
+      }
+      this.updateProductList();
+    })
+  }
+
+  updateProductList() {
+    this.cards = this.breakpointObserver.observe(Breakpoints.XSmall).pipe(
       map(({ matches }) => {
         if (matches) {
           return ProductsExampleList.filter(({ name }: Product) => {
-            return name.toLowerCase().includes(this.search.toLowerCase());
+            return name.toLowerCase().includes(this.name_product.toLowerCase());
           }).map( product =>
             ({
               title: product.name,
-              cols: 1,
+              cols: 2,
               rows: 1,
               link: product.image
             })
@@ -33,7 +48,7 @@ export class DashboardComponent implements OnChanges{
         }
   
         return ProductsExampleList.filter(({ name }: Product) => {
-          return name.toLowerCase().includes(this.search.toLowerCase());
+          return name.toLowerCase().includes(this.name_product.toLowerCase());
         }).map( product =>
           ({
             title: product.name,
@@ -45,4 +60,5 @@ export class DashboardComponent implements OnChanges{
       })
     );
   }
+
 }

@@ -7,8 +7,15 @@
     <mat-toolbar>Menu</mat-toolbar>
 
     <mat-nav-list>
-      <a mat-list-item href="#">Home</a>
-      <a mat-list-item href="#">Search</a>
+      <a mat-list-item href="/home">Home</a>
+      <a mat-list-item href="/user/login">Login</a>
+      <a mat-list-item href="/user/register">Register</a>
+      <hr>  
+      <h2 class="ms-3">Categories</h2>
+      <a mat-list-item href="/home;filter=shirt">Shirts</a>
+      <a mat-list-item href="/home;filter=pants">Pants</a>
+      <a mat-list-item href="/home;filter=skirt">Skirts</a>
+      <a mat-list-item href="/home;filter=gloves">Gloves</a>
     </mat-nav-list>
   </mat-sidenav>
 
@@ -24,17 +31,18 @@
       <span>OnlineStore</span>
       <input type="text"
       class="form-control"
+      [ngClass]="{'searchmaxwidth': !(isHandset$ | async)}"
       placeholder="Search..."
       input (keydown.enter)="filter($event)"
       />
       
-      <div class="user-buttons">
+      <div *ngIf="!(isHandset$ | async)" class="user-buttons">
         <button mat-raised-button routerLink="/user/login" color="primary">Log in</button>
         <button mat-raised-button routerLink="/user/register" color="primary">Register</button>
       </div>
       
     </mat-toolbar>
-    <app-dashboard [search]="search"></app-dashboard>
+    <app-dashboard></app-dashboard>
 
   </mat-sidenav-content>
 
