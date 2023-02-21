@@ -11,18 +11,18 @@
               <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item (click)="onClickProduct(card.id)">Expand</button>
-              <button mat-menu-item>Remove</button>
+              <button mat-menu-item (click)="onClickProduct(card.id)">See product</button>
             </mat-menu>
           </mat-card-title>
         </mat-card-header>
-
-        <div class="image-container">
-          <img [src]="card.link" alt="No image found">
-        </div>
-        
-        <mat-card-content class="dashboard-card-content">
+        <mat-card-content class="dashboard-card-content">  
+          <div class="image-container">
+            <img [src]="card.link" alt="No image found">
+          </div>
         </mat-card-content>
+        <mat-card-footer class="ms-3">
+          <h2>Price: {{card.price | currency}}</h2>
+        </mat-card-footer>
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
