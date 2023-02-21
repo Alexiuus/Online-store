@@ -47,7 +47,8 @@ export class DashboardComponent implements OnInit {
               title: product.name,
               cols: 2,
               rows: 1,
-              link: product.image
+              link: product.image,
+              id: product.id
             })
           )
         }
@@ -59,7 +60,8 @@ export class DashboardComponent implements OnInit {
             title: product.name,
             cols: 1,
             rows: 1,
-            link: product.image
+            link: product.image,
+            id: product.id
           })
         )
       })
@@ -69,5 +71,4 @@ export class DashboardComponent implements OnInit {
   onClickProduct(id_product : number) {
     this.router.navigate([`home/product/${id_product}`]);
   }
-
 }
