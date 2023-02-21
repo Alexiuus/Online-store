@@ -1,36 +1,69 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { ProductsExampleList } from '../../example/ProductsExample';
+import { Product } from '../../interfaces/Products';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent {
-  /** Based on the screen size, switch from standard to one column per row */
-  cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-    map(({ matches }) => {
-      if (matches) {
-        return [
-          { title: ProductsExampleList[0].name, cols: 1, rows: 1, link: ProductsExampleList[0].image },
-          { title: ProductsExampleList[1].name, cols: 1, rows: 1, link: ProductsExampleList[1].image },
-          { title: ProductsExampleList[2].name, cols: 1, rows: 1, link: ProductsExampleList[2].image },
-          { title: ProductsExampleList[3].name, cols: 1, rows: 1, link: ProductsExampleList[3].image },
-          { title: ProductsExampleList[4].name, cols: 1, rows: 1, link: ProductsExampleList[4].image }
-        ];
+export class DashboardComponent implements OnInit {
+
+  name_product: string = '';
+  cards: any;
+  urlSubscription?: Subscription;
+
+  constructor(private breakpointObserver: BreakpointObserver, private route: ActivatedRoute, private router: Router) {}
+
+  ngOnInit() {
+    this.urlSubscription = this.route.params.subscribe( params => {
+      if (typeof(params['filter']) === 'undefined' || params['filter'] === '') {
+        this.name_product = '';
+        this.router.navigate(['home']);
       }
-
-      return [
-        { title: ProductsExampleList[0].name, cols: 1, rows: 1, link: ProductsExampleList[0].image  },
-        { title: ProductsExampleList[1].name, cols: 1, rows: 1, link: ProductsExampleList[1].image  },
-        { title: ProductsExampleList[2].name, cols: 1, rows: 1, link: ProductsExampleList[2].image  },
-        { title: ProductsExampleList[3].name, cols: 1, rows: 1, link: ProductsExampleList[3].image  },
-        { title: ProductsExampleList[4].name, cols: 1, rows: 1, link: ProductsExampleList[4].image  }
-      ];
+      else {
+        this.name_product = params['filter'];
+      }
+      this.updateProductList();
     })
-  );
+  }
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  ngOnDestroy(): void {
+    this.urlSubscription?.unsubscribe();
+  }
+
+  updateProductList() {
+    this.cards = this.breakpointObserver.observe(Breakpoints.XSmall).pipe(
+      map(({ matches }) => {
+        if (matches) {
+          return ProductsExampleList.filter(({ name }: Product) => {
+            return name.toLowerCase().includes(this.name_product.toLowerCase());
+          }).map( product =>
+            ({
+              title: product.name,
+              cols: 2,
+              rows: 1,
+              link: product.image
+            })
+          )
+        }
+  
+        return ProductsExampleList.filter(({ name }: Product) => {
+          return name.toLowerCase().includes(this.name_product.toLowerCase());
+        }).map( product =>
+          ({
+            title: product.name,
+            cols: 1,
+            rows: 1,
+            link: product.image
+          })
+        )
+      })
+    );
+  }
+
 }

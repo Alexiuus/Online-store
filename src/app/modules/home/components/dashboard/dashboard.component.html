@@ -3,6 +3,7 @@
   <mat-grid-list cols="2" rowHeight="350px">
     <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
       <mat-card class="dashboard-card">
+
         <mat-card-header>
           <mat-card-title>
             {{card.title}}
@@ -15,9 +16,12 @@
             </mat-menu>
           </mat-card-title>
         </mat-card-header>
+
+        <div class="image-container">
+          <img [src]="card.link" alt="No image found">
+        </div>
         
         <mat-card-content class="dashboard-card-content">
-          <img [src]="card.link" alt="No image found">
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>

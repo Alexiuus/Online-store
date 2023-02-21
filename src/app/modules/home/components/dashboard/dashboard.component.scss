@@ -20,6 +20,11 @@
   text-align: center;
 }
 
+.image-container {
+  display: flex;
+  justify-content: center;
+}
+
 img {
   max-height: 250px;
 }
