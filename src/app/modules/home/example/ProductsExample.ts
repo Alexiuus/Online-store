@@ -7,7 +7,7 @@ export type Product = {
     size: number[]
 }
 
-export const ProductsExampleList = [
+export const ProductsExampleList : Product[] = [
     {
         id: 1,
         name: "Plain Black Cotton T-Shirt",

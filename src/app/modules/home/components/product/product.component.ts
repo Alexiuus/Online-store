@@ -14,7 +14,7 @@ export class ProductComponent implements OnInit, OnDestroy {
   private paramsRouteSubscription : any;
   private windowSubscription : any
 
-  constructor(private _route:ActivatedRoute, private windowObserver: BreakpointObserver) { }
+  constructor(private _route: ActivatedRoute, private windowObserver: BreakpointObserver) { }
 
   ngOnInit() {
     /* route parameters */
