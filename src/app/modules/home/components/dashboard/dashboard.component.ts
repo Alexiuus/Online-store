@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { ProductsExampleList } from '../../example/ProductsExample';
-import { ProductService } from 'src/app/services/product.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -27,8 +26,8 @@ export class DashboardComponent {
   );
 
   onClickProduct(id_product : number){
-    this.router.navigate([`/product/${id_product}`]);
+    this.router.navigate([`home/product/${id_product}`]);
   }
 
-  constructor(private breakpointObserver: BreakpointObserver, private productSelect : ProductService, private router: Router) {}
+  constructor(private breakpointObserver: BreakpointObserver, private router: Router) {}
 }

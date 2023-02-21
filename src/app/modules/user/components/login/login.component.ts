@@ -18,7 +18,7 @@ export class LoginComponent {
   isRegister : boolean = false;
   urlImagelike : string = 'https://static.vecteezy.com/system/resources/previews/010/142/101/original/check-mark-icon-sign-symbol-design-free-png.png';
 
-  constructor(public validate : ValidateDataRegLogService){}
+  constructor(private validate : ValidateDataRegLogService){}
 
   get username(){
     return this.formUser.get('username');
@@ -26,6 +26,22 @@ export class LoginComponent {
 
   get password(){
     return this.formUser.get('password');
+  }
+
+  isErrorPassword() : boolean {
+    return this.validate.isErrorPassword(this.password, this.password);
+  }
+  
+  getErrorPassword() : String {
+    return this.validate.getErrorPassword(this.password, this.password);
+  }
+
+  isErrorUsername() : boolean {
+    return this.validate.isErrorUsername(this.username);
+  }
+
+  getErrorUsername() : string {
+    return this.validate.getErrorUsername(this.username);
   }
 
   sendDataRegister(){

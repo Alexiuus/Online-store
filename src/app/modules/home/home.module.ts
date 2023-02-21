@@ -13,12 +13,14 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ProductComponent } from './components/product/product.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     NavComponent,
+    ProductComponent,
     DashboardComponent
   ],
   imports: [
