@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
-import { ProductsExampleList } from '../../example/ProductsExample';
-import { Product } from '../../interfaces/Products';
+import { Product, ProductsExampleList } from '../../example/ProductsExample';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 

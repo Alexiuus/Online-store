@@ -1,13 +1,13 @@
 export type Product = {
     id: number,
     name: string,
-    tpye: string,
+    type: string,
     price: number,
     image: string,
     size: number[]
 }
 
-export const ProductsExampleList: Product = [
+export const ProductsExampleList = [
     {
         id: 1,
         name: "Plain Black Cotton T-Shirt",
