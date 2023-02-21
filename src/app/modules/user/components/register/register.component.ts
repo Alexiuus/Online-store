@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
-import {isEmptyPassword, isEqualPassword, isValidPassword} from './verifyData';
+import { ValidateDataRegLogService } from 'src/app/services/validate-data-reg-log.service';
 
 @Component({
   selector: 'app-register',
@@ -23,6 +23,7 @@ export class RegisterComponent {
   isRegister : boolean = false;
   urlImagelike : string = 'https://static.vecteezy.com/system/resources/previews/010/142/101/original/check-mark-icon-sign-symbol-design-free-png.png';
 
+  constructor(private validate : ValidateDataRegLogService){}
   /* get's registration data */
   get email(){
     return this.formUser.get('email');
@@ -48,57 +49,36 @@ export class RegisterComponent {
     return this.formUser.get('lName');
   }
 
-  isErrorPassword(password : any, vPassword : any) : boolean {
-    const isPristinePassword : boolean = password?.pristine?? false;
-    const isPristineVPassword : boolean = vPassword?.pristine?? false;
-
-    return !(isPristinePassword || isPristineVPassword) && (isEmptyPassword(password) || 
-            !isEqualPassword(password, vPassword) || 
-            !isValidPassword(password));
+  isErrorPassword() : boolean {
+    return this.validate.isErrorPassword(this.password, this.vPassword);
   }
   
-  getErrorPassword(password : any, vPassword : any) : String {
-    if (isEmptyPassword(password)) return 'Empty passsword';
-    else if (!isValidPassword(password)) return 'invalid password';
-    else if (!isEqualPassword(password, vPassword)) return 'different passwords';
-  
-    return '';
+  getErrorPassword() : String {
+    return this.validate.getErrorPassword(this.password, this.vPassword);
   }
 
-  isErrorEmail(email : any) : boolean{
-    return email?.valid || email?.pristine;
+  isErrorEmail() : boolean{
+    return this.validate.isErrorEmail(this.email);
   }
 
-  getErrorEmail(email : any) : string {
-    if (email?.errors?.['required']) return 'empty email';
-    else if (email?.errors?.['email']) return 'invalid email';
-
-    return '';
+  getErrorEmail() : string {
+    return this.validate.getErrorEmail(this.email);
   }
   
-  isErrorName(fName : any, lName : any) : boolean {
-    return (fName?.valid && lName?.valid) || fName?.pristine || lName?.pristine;
+  isErrorName() : boolean {
+    return this.validate.isErrorName(this.fName, this.lName);
   }
 
-  getErrorName(fName : any, lName : any) : string {
-    const fNameRequired = fName?.errors?.['required']?? true;
-    const lNameRequired = fName?.errors?.['required']?? true;
-
-    if(fNameRequired || lNameRequired) return 'empty Name';
-    else if (fName?.errors?.['fName'] || lName?.errors?.['lName']) return 'invalid Name';
-
-    return '';
+  getErrorName() : string {
+    return this.validate.getErrorName(this.fName, this.lName);
   }
 
-  isErrorUsername(username : any) : boolean {
-    return username?.valid || username?.pristine;
+  isErrorUsername() : boolean {
+    return this.validate.isErrorUsername(this.username);
   }
 
-  getErrorUsername(username : any) : string {
-    if(username?.errors?.['required']) return 'empty username';
-    else if(username?.errors?.['username']) return 'invalid username';
-
-    return '';
+  getErrorUsername() : string {
+    return this.validate.getErrorUsername(this.username);
   }
 
   sendDataRegister(){

@@ -9,6 +9,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button'; 
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ValidateDataRegLogService } from 'src/app/services/validate-data-reg-log.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { RegisterComponent } from './components/register/register.component';
     CommonModule,
     MatToolbarModule
   ],
-  providers: [],
+  providers: [ValidateDataRegLogService],
   bootstrap: [UserComponent]
 })
 export class UserModule { }

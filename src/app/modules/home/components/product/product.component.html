@@ -1,0 +1,27 @@
+<div class="product container">
+    <div class="data-product row">
+        <div [ngClass]="{'offset-3 col-7': isMobile , 'container-image-product-desktop col-7': !isMobile }">
+            <img class="image-product col-6" [src]="product.image" alt="No image found">
+        </div>
+        <div [ngClass]="{'data-pay-desktop offset-1 col-4': !isMobile }">
+            <h1 class="product-name"><b>{{product.name}}</b></h1>
+            <hr>
+            <h1 class="product-price">price: <b class="price">${{product.price}}</b></h1>
+            <div>
+                <div class="purchase-data offset-4 col-4">
+                    <h2 class="purchase-title" align="center">size</h2>
+                    <select class="select-size form-select" id="options">
+                        <option *ngFor="let option of product.size">{{ option }}</option>
+                      </select>
+                </div>
+                <div class="purchase-data offset-4 col-4">
+                    <h2 class="purchase-title" align="center">amount</h2>
+                    <input type="number" class="amount col-12" placeholder="amount"/>
+                </div>
+            </div>
+            <hr>
+            <button class="button btn btn-primary offset-3 col-6">buy now</button>
+            <button class="button btn btn-outline-primary offset-3 col-6">add to cart</button>
+        </div>
+    </div>
+</div>

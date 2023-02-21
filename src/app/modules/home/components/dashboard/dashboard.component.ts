@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
+
 export class DashboardComponent implements OnInit {
 
   name_product: string = '';
@@ -64,6 +65,10 @@ export class DashboardComponent implements OnInit {
         )
       })
     );
+  }
+
+  onClickProduct(id_product : number) {
+    this.router.navigate([`home/product/${id_product}`]);
   }
 
 }
