@@ -44,11 +44,13 @@ export class DashboardComponent implements OnInit {
             return name.toLowerCase().includes(this.name_product.toLowerCase());
           }).map( product =>
             ({
+              id: product.id,
               title: product.name,
-              cols: 2,
-              rows: 1,
               link: product.image,
-              id: product.id
+              type: product.type,
+              price: product.price,
+              rows: 1,
+              cols: 2
             })
           )
         }
@@ -57,11 +59,13 @@ export class DashboardComponent implements OnInit {
           return name.toLowerCase().includes(this.name_product.toLowerCase());
         }).map( product =>
           ({
+            id: product.id,
             title: product.name,
-            cols: 1,
-            rows: 1,
             link: product.image,
-            id: product.id
+            type: product.type,
+            price: product.price,
+            rows: 1,
+            cols: 1
           })
         )
       })

@@ -14,6 +14,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProductComponent } from './components/product/product.component';
+import { CartComponent } from './components/cart/cart.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ProductComponent } from './components/product/product.component';
     HomeComponent,
     NavComponent,
     ProductComponent,
-    DashboardComponent
+    DashboardComponent,
+    CartComponent
   ],
   imports: [
     CommonModule,
