@@ -4,6 +4,7 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { ProductsExampleList } from '../../example/ProductsExample';
 import { Product } from '../../interfaces/Products';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,7 +15,7 @@ export class DashboardComponent implements OnInit {
 
   name_product: string = '';
   cards: any;
-  urlSubscription: any;
+  urlSubscription?: Subscription;
 
   constructor(private breakpointObserver: BreakpointObserver, private route: ActivatedRoute, private router: Router) {}
 
@@ -29,6 +30,10 @@ export class DashboardComponent implements OnInit {
       }
       this.updateProductList();
     })
+  }
+
+  ngOnDestroy(): void {
+    this.urlSubscription?.unsubscribe();
   }
 
   updateProductList() {
